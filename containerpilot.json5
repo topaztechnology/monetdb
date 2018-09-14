@@ -1,0 +1,22 @@
+{
+  consul: "localhost:8500",
+  logging: {
+    level: "{{ .LOG_LEVEL | default "INFO" }}"
+  },
+  jobs: [
+    {
+      name: "monet-init",
+      exec: "/usr/local/bin/monet-init",
+      restarts: "never"
+    }, {
+      name: "monet",
+      exec: "/usr/local/bin/monet-start",
+      restarts: "unlimited",
+      stopTimeout: "5s",
+      when: {
+        source: "monet-init",
+        once: "exitSuccess"
+      }
+    }
+  ]
+}

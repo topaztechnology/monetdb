@@ -1,0 +1,20 @@
+#!/bin/bash
+set -eo pipefail
+
+if [ -z "${MONET_DBFARM}" ]; then
+  MONET_DBFARM=/var/lib/monetdb/dbfarm
+  containerpilot -putenv 'MONET_DBFARM='"${MONET_DBFARM}"
+fi
+
+if [ ! -d ${MONET_DBFARM} ]; then
+  # Setup Monet database
+  echo "Initialising MonetDB farm in ${MONET_DBFARM}, and creating database: ${MONET_DATABASE}"
+  monetdbd create ${MONET_DBFARM}
+  monetdbd set listenaddr=0.0.0.0 ${MONET_DBFARM}
+  monetdbd set exittimeout=5 ${MONET_DBFARM}
+  monetdbd start ${MONET_DBFARM}
+  monetdb create ${MONET_DATABASE}
+  monetdb release ${MONET_DATABASE}
+  monetdbd stop ${MONET_DBFARM}
+  chown -R monetdb:monetdb ${MONET_DBFARM}
+fi
