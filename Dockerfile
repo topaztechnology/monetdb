@@ -1,7 +1,7 @@
 FROM topaztechnology/base:3.6
 MAINTAINER Topaz Tech Ltd <info@topaz.technology>
 
-ENV MONETDB_VERSION 11.27.5
+ENV MONETDB_VERSION 11.31.11
 ENV MONETDB_RELEASES https://www.monetdb.org/downloads/sources/archive
 
 RUN addgroup monetdb && \
@@ -14,9 +14,8 @@ RUN \
     snappy xz-libs && \
   curl -Lso /tmp/MonetDB.tar.bz2 "${MONETDB_RELEASES}/MonetDB-${MONETDB_VERSION}.tar.bz2" && \
   cd /tmp && \
-  bunzip2 MonetDB.tar.bz2 && \
-  tar xvf MonetDB.tar && \
-  rm MonetDB.tar && \
+  tar xjvf MonetDB.tar.bz2 && \
+  rm MonetDB.tar.bz2 && \
   cd MonetDB-${MONETDB_VERSION} && \
   patch tools/merovingian/daemon/merovingian.c /root/merovingian.patch && \
   apk add --update --no-cache --virtual build-dependencies \

@@ -1,13 +1,13 @@
 --- merovingian.c
 +++ merovingian.c2
 @@ -54,6 +54,10 @@
- #include <utils/database.h>
- #include <utils/control.h>
+ #include "utils/database.h"
+ #include "utils/control.h"
 
 +// Undefine S_IRUSR as this is defined above in mutils.h, and prevents sys/stat.h
 +// correctly defining other fields below
 +#undef S_IRUSR
 +
- #include <stdlib.h> /* exit, getenv, rand, srand */
- #include <stdarg.h>	/* variadic stuff */
- #include <stdio.h> /* fprintf */
+ #include <sys/types.h>
+ #include <sys/stat.h> /* stat */
+ #include <sys/wait.h> /* wait */
