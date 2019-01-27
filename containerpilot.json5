@@ -6,11 +6,11 @@
   jobs: [
     {
       name: "monet-init",
-      exec: "/usr/local/bin/monet-init",
+      exec: "/usr/local/bin/monet-init.sh",
       restarts: "never"
     }, {
       name: "monet",
-      exec: "/usr/local/bin/monet-start",
+      exec: "/usr/local/bin/monet-start.sh",
       restarts: "unlimited",
       stopTimeout: "5s",
       when: {
