@@ -7,4 +7,4 @@ docker run \
   -e MONET_DATABASE=docker \
   -e MONETDB_PASSWORD=docker \
   -v monet-data:/var/lib/monetdb \
-  topaztechnology/monetdb:11.31.13
+  topaztechnology/monetdb:11.33.3
