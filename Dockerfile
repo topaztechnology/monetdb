@@ -1,7 +1,7 @@
-FROM topaztechnology/base:3.10.1
+FROM topaztechnology/base:3.11.3
 MAINTAINER Topaz Tech Ltd <info@topaz.technology>
 
-ENV MONETDB_VERSION 11.33.3
+ENV MONETDB_VERSION 11.35.19
 ENV MONETDB_RELEASES https://www.monetdb.org/downloads/sources/archive
 
 RUN addgroup monetdb && \
@@ -10,7 +10,7 @@ RUN addgroup monetdb && \
 # Build MonetDB
 COPY merovingian.patch /root
 RUN \
-  apk add --update --no-cache libatomic libxml2 readline libressl2.7-libcrypto pcre libbz2 lz4-libs \
+  apk add --update --no-cache libatomic libxml2 readline libressl3.0-libcrypto pcre libbz2 lz4-libs \
     snappy xz-libs && \
   curl -Lso /tmp/MonetDB.tar.bz2 "${MONETDB_RELEASES}/MonetDB-${MONETDB_VERSION}.tar.bz2" && \
   cd /tmp && \
