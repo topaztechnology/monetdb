@@ -1,5 +1,6 @@
 # Supported tags and respective `Dockerfile` links
 * `latest` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/master/Dockerfile) - the latest release
+* `11.37.11` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.37.11/Dockerfile) - release based on MonetDB 11.37.11 sources
 * `11.35.19` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.35.19/Dockerfile) - release based on MonetDB 11.35.19 sources
 * `11.33.3` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.33.3/Dockerfile) - release based on MonetDB 11.33.3 sources
 * `11.31.13` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.31.13/Dockerfile) - release based on MonetDB 11.31.13 sources
@@ -9,8 +10,6 @@
 # Overview
 
 A MonetDB image built from sources on top of an Alpine base image, which allows creation of a dbfarm and a database on startup.
-
-Joyent's [Containerpilot](https://www.joyent.com/containerpilot) is used to manage job scheduling.
 
 # How to use this image
 
