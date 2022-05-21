@@ -1,7 +1,7 @@
 FROM alpine:3.15.4
 LABEL maintainer=info@topaz.technology
 
-ENV MONETDB_VERSION 11.41.21
+ENV MONETDB_VERSION 11.43.13
 ENV MONETDB_RELEASES https://www.monetdb.org/downloads/sources/archive
 
 RUN addgroup monetdb && \
@@ -11,11 +11,11 @@ RUN addgroup monetdb && \
 COPY mutils.patch /root
 
 RUN \
-  apk add --update --no-cache bash curl geos gsl python3 libatomic libxml2 readline libressl pcre libbz2 lz4-libs \
+  apk add --update --no-cache bash curl geos gsl python3 libatomic libxml2 readline pcre libbz2 lz4-libs \
     snappy xz-libs cfitsio unixodbc libuuid && \
   apk add --update --no-cache --virtual build-dependencies \
     file patch curl bison build-base cmake python3-dev curl-dev geos-dev gsl-dev libatomic_ops-dev \
-    libxml2-dev readline-dev libressl-dev pcre-dev bzip2-dev lz4-dev snappy-dev xz-dev zlib-dev cfitsio-dev \
+    libxml2-dev readline-dev pcre-dev bzip2-dev lz4-dev snappy-dev xz-dev zlib-dev cfitsio-dev \
     unixodbc-dev zlib-dev && \
   curl -Lso /tmp/MonetDB.tar.bz2 "${MONETDB_RELEASES}/MonetDB-${MONETDB_VERSION}.tar.bz2" && \
   cd /tmp && \
