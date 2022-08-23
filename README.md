@@ -1,5 +1,6 @@
 # Supported tags and respective `Dockerfile` links
 * `latest` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/master/Dockerfile) - the latest release
+* `11.43.21` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.43.21/Dockerfile) - release based on MonetDB 11.43.21 sources
 * `11.43.13` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.43.13/Dockerfile) - release based on MonetDB 11.43.13 sources
 * `11.41.21` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.41.21/Dockerfile) - release based on MonetDB 11.41.21 sources
 * `11.39.17` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.39.17/Dockerfile) - release based on MonetDB 11.39.17 sources
