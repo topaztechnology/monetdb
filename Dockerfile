@@ -1,7 +1,7 @@
 FROM alpine:3.16.2
 LABEL maintainer=info@topaz.technology
 
-ENV MONETDB_VERSION 11.43.21
+ENV MONETDB_VERSION 11.45.7
 ENV MONETDB_RELEASES https://www.monetdb.org/downloads/sources/archive
 
 RUN addgroup monetdb && \
