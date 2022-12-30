@@ -1,14 +1,14 @@
-FROM alpine:3.16.2
+FROM alpine:3.17.0
 LABEL maintainer=info@topaz.technology
 
-ENV MONETDB_VERSION 11.45.7
+ENV MONETDB_VERSION 11.45.11
 ENV MONETDB_RELEASES https://www.monetdb.org/downloads/sources/archive
 
 RUN addgroup monetdb && \
     adduser -S -G monetdb monetdb
 
 # Build MonetDB
-COPY mutils.patch /root
+COPY mutils.patch /tmp
 
 RUN \
   apk add --update --no-cache bash curl geos gsl python3 libatomic libxml2 readline pcre libbz2 lz4-libs \
@@ -17,21 +17,17 @@ RUN \
     file patch curl bison build-base cmake python3-dev curl-dev geos-dev gsl-dev libatomic_ops-dev \
     libxml2-dev readline-dev pcre-dev bzip2-dev lz4-dev snappy-dev xz-dev zlib-dev cfitsio-dev \
     unixodbc-dev zlib-dev && \
-  curl -Lso /tmp/MonetDB.tar.bz2 "${MONETDB_RELEASES}/MonetDB-${MONETDB_VERSION}.tar.bz2" && \
-  cd /tmp && \
-  tar xjvf MonetDB.tar.bz2 && \
-  mv "MonetDB-${MONETDB_VERSION}" MonetDB && \
-  rm MonetDB.tar.bz2 && \
-  patch MonetDB/common/utils/mutils.h /root/mutils.patch && \
-  mkdir -p /tmp/MonetDB/build && \
-  cd /tmp/MonetDB/build && \
-  cmake -DCMAKE_BUILD_TYPE=Release /tmp/MonetDB && \
+  mkdir -p /tmp/build/cmake && \
+  curl -Ls "${MONETDB_RELEASES}/MonetDB-${MONETDB_VERSION}.tar.bz2" | tar xj --strip-components=1 -C /tmp/build  && \
+  patch /tmp/build/common/utils/mutils.h /tmp/mutils.patch && \
+  cd /tmp/build/cmake && \
+  cmake -DCMAKE_BUILD_TYPE=Release /tmp/build && \
   cmake --build . --parallel "$(nproc)" && \
   cmake --build . --target install && \
   apk del build-dependencies && \
   cd /root && \
-  rm -rf /tmp/MonetDB && \
-  rm /root/*
+  rm -rf /tmp/build && \
+  rm /tmp/mutils.patch
 
 COPY bin/ /usr/local/bin/
 
