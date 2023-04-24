@@ -1,21 +1,26 @@
 # Supported tags and respective `Dockerfile` links
-* `latest` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/master/Dockerfile) - the latest release
-* `11.45.11` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.45.11/Dockerfile) - release based on MonetDB 11.45.11 sources
-* `11.45.7` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.45.7/Dockerfile) - release based on MonetDB 11.45.7 sources
-* `11.43.21` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.43.21/Dockerfile) - release based on MonetDB 11.43.21 sources
-* `11.43.13` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.43.13/Dockerfile) - release based on MonetDB 11.43.13 sources
-* `11.41.21` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.41.21/Dockerfile) - release based on MonetDB 11.41.21 sources
-* `11.39.17` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.39.17/Dockerfile) - release based on MonetDB 11.39.17 sources
-* `11.37.11` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.37.11/Dockerfile) - release based on MonetDB 11.37.11 sources
-* `11.35.19` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.35.19/Dockerfile) - release based on MonetDB 11.35.19 sources
-* `11.33.3` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.33.3/Dockerfile) - release based on MonetDB 11.33.3 sources
-* `11.31.13` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.31.13/Dockerfile) - release based on MonetDB 11.31.13 sources
-* `11.31.11` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.31.11/Dockerfile) - release based on MonetDB 11.31.11 sources
-* `11.27.5` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/11.27.5/Dockerfile) - release based on MonetDB 11.27.5 sources
+
+* `latest` [(Dockerfile)](https://github.com/topaztechnology/monetdb/blob/master/Dockerfile)
+
+| Tag        | Dockerfile                                                                        |
+|------------|-----------------------------------------------------------------------------------|
+| `11.45.13` | [Dockerfile](https://github.com/topaztechnology/monetdb/blob/11.45.13/Dockerfile) |
+| `11.45.11` | [Dockerfile](https://github.com/topaztechnology/monetdb/blob/11.45.11/Dockerfile) |
+| `11.45.7`  | [Dockerfile](https://github.com/topaztechnology/monetdb/blob/11.45.7/Dockerfile)  |
+| `11.43.21` | [Dockerfile](https://github.com/topaztechnology/monetdb/blob/11.43.21/Dockerfile) |
+| `11.43.13` | [Dockerfile](https://github.com/topaztechnology/monetdb/blob/11.43.13/Dockerfile) |
+| `11.41.21` | [Dockerfile](https://github.com/topaztechnology/monetdb/blob/11.41.21/Dockerfile) |
+| `11.39.17` | [Dockerfile](https://github.com/topaztechnology/monetdb/blob/11.39.17/Dockerfile) |
+| `11.37.11` | [Dockerfile](https://github.com/topaztechnology/monetdb/blob/11.37.11/Dockerfile) |
+| `11.35.19` | [Dockerfile](https://github.com/topaztechnology/monetdb/blob/11.35.19/Dockerfile) |
+| `11.33.3`  | [Dockerfile](https://github.com/topaztechnology/monetdb/blob/11.33.3/Dockerfile)  |
+| `11.31.13` | [Dockerfile](https://github.com/topaztechnology/monetdb/blob/11.31.13/Dockerfile) |
+| `11.31.11` | [Dockerfile](https://github.com/topaztechnology/monetdb/blob/11.31.11/Dockerfile) |
+| `11.27.5`  | [Dockerfile](https://github.com/topaztechnology/monetdb/blob/11.27.5/Dockerfile)  |
 
 # Overview
 
-A MonetDB image built from sources on top of an Alpine base image, which allows creation of a dbfarm and a database on startup.
+A MonetDB image built from sources on top of an Alpine base image, for both amd64 and arm64 architectures. It allows creation of a dbfarm and a database on startup.
 
 # How to use this image
 
